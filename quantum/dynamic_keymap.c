@@ -203,7 +203,8 @@ int dynamic_keymap_get_tap_dance(uint8_t index, vial_tap_dance_entry_t *entry) {
         return -1;
 
     void *address = (void*)(VIAL_TAP_DANCE_EEPROM_ADDR + index * sizeof(vial_tap_dance_entry_t));
-    eeprom_read_block(entry, address, sizeof(vial_tap_dance_entry_t));
+//    eeprom_read_block(entry, address, sizeof(vial_tap_dance_entry_t));
+    eeprom_read_block(entry, address-1, sizeof(vial_tap_dance_entry_t));
 
     return 0;
 }
@@ -213,7 +214,8 @@ int dynamic_keymap_set_tap_dance(uint8_t index, const vial_tap_dance_entry_t *en
         return -1;
 
     void *address = (void*)(VIAL_TAP_DANCE_EEPROM_ADDR + index * sizeof(vial_tap_dance_entry_t));
-    eeprom_write_block(entry, address, sizeof(vial_tap_dance_entry_t));
+//    eeprom_write_block(entry, address, sizeof(vial_tap_dance_entry_t));
+    eeprom_write_block(entry, address-1, sizeof(vial_tap_dance_entry_t));
 
     return 0;
 }
@@ -225,8 +227,8 @@ int dynamic_keymap_get_combo(uint8_t index, vial_combo_entry_t *entry) {
         return -1;
 
     void *address = (void*)(VIAL_COMBO_EEPROM_ADDR + index * sizeof(vial_combo_entry_t));
-    eeprom_read_block(entry, address, sizeof(vial_combo_entry_t));
-
+//    eeprom_read_block(entry, address, sizeof(vial_combo_entry_t));
+    eeprom_read_block(entry, address-1, sizeof(vial_combo_entry_t));
     return 0;
 }
 
@@ -247,8 +249,8 @@ int dynamic_keymap_get_key_override(uint8_t index, vial_key_override_entry_t *en
         return -1;
 
     void *address = (void*)(VIAL_KEY_OVERRIDE_EEPROM_ADDR + index * sizeof(vial_key_override_entry_t));
-    eeprom_read_block(entry, address, sizeof(vial_key_override_entry_t));
-
+//    eeprom_read_block(entry, address, sizeof(vial_key_override_entry_t));
+    eeprom_read_block(entry, address-1, sizeof(vial_key_override_entry_t));
     return 0;
 }
 
